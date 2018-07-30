@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/commUI.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/commUI.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div  id="div0" class="col-md-4" style="height: 300px;">
+            局部加载
+        </div>
+        <div  id="div1" class="col-md-4" style="height: 300px;">
+            局部加载
+        </div>
+    </div>
+    <div   class="row" style="height: 800px;"></div>
+</div>
+
+
+<script>
+    //commUI.blockUI(document.getElementsByClassName("col-md-4"),"加载中。。。");
+    commUI.blockUI($("body"),"3秒后结束。。。",true);
+    window.setTimeout(function () {
+        commUI.unblockUI($("body"));
+    },3000);
+    window.setTimeout(function () {
+        commUI.blockUI(document.getElementsByClassName("col-md-4"),"加载中。。。");
+    },4000);
+    window.setTimeout(function () {
+        commUI.unblockUI($(".col-md-4"));
+    },8000);
+
+
+</script>
+</body>
+</html>
